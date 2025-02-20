@@ -1,10 +1,20 @@
 #!/usr/bin/env sh
 
 # env path
-env_path=$(pwd)/.env.production
+env_path=$ENV_PATH
+# test if env_path is provided
+if [ -z "$env_path" ]; then
+  echo "env_path is not provided"
+  exit 1
+fi
 
 # dist path
-dist_path=$(pwd)
+dist_path=$DIST_PATH
+# test if dist_path is provided
+if [ -z "$dist_path" ]; then
+  echo "dist_path is not provided"
+  exit 1
+fi
 
 # find all js files in dist
 js_files=$(find $dist_path -type f -name "*.js")

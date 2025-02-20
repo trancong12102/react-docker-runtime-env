@@ -9,6 +9,9 @@ function App() {
       <h1>
         { import.meta.env.VITE_BBB }
       </h1>
+      <h1>
+        { import.meta.env.VITE_CCC }
+      </h1>
     </>
   )
 }

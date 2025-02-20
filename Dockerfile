@@ -37,6 +37,8 @@ COPY --from=build /app/dist /var/www
 
 COPY Caddyfile /etc/caddy/Caddyfile
 
+ENV ENV_PATH="/var/www/.env.production"
+ENV DIST_PATH="/var/www"
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
