@@ -29,9 +29,6 @@ for line in $env_runtime_lines; do
   env_value=$(echo "$env_value" | sed 's/^"\([^"]*\)"$/\1/; s/^'\''\([^'\'']*\)'\''$/\1/')
   runtime_value=$(printenv "$env_name")
 
-  echo "env_name: $env_name"
-  echo "env_value: $env_value"
-
   # skip if runtime value is empty
   [ -z "$runtime_value" ] && continue
 
