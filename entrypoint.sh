@@ -34,10 +34,18 @@ for line in $env_runtime_lines; do
 
   echo "Replacing $env_value with $runtime_value in all js files"
 
+  changed_count=0
   # loop through all js files
   for js_file in $js_files; do
-    $() sed -i "s,$env_value,$runtime_value,g" "$js_file"
+    if grep -q "$env_value" "$js_file"; then
+      sed -i "s,$env_value,$runtime_value,g" "$js_file"
+      changed_count=$((changed_count + 1))
+    fi
   done
+
+  if [ "$changed_count" -gt 0 ]; then
+    echo "Updated $changed_count files for $env_name"
+  fi
 done
 
 exec "$@"
