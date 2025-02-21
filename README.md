@@ -1,6 +1,7 @@
 # React + Docker runtime environment variables
 
 This is a simple example of how to use environment variables in a Vite + React project running in a Docker container.
+Also works with Next.js, or any other framework that build to javascript files.
 
 ## How does it work?
 
