@@ -17,7 +17,7 @@ if [ -z "$dist_path" ]; then
 fi
 
 # find all js files in dist
-js_files=$(find $dist_path -type f -name "*.js")
+js_files=$(find $dist_path -type f -name "*.js" -not -path "*/node_modules/*")
 
 # get all runtime env variable lines from env_path
 env_runtime_lines=$(awk '/### RUNTIME ###/ {getline; if($0 ~ /=/) print}' "$env_path")
